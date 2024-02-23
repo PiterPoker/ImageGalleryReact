@@ -1,0 +1,37 @@
+@media (min-width: 0px) { 
+    div.ToolBar-Box{
+        display: none;
+    }
+    div.ToolBar-Typography{
+        flex-grow: 1;
+        display: none;
+    }
+    .Navbar-Box{
+        height: 64px;
+    }
+    
+}
+
+@media (min-width: 600px) {   
+    div.ToolBar-Box{
+        display: block;
+    } 
+    a.ToolBar-Button{
+        color: #fff
+    }
+    a.ToolBar-Button:hover{
+        color: #93a8d3
+    }
+    div.ToolBar-Typography{
+        flex-grow: 1;
+        display: block;
+    }
+    button.ToolBar-IconButton{
+        display: none;
+    }
+    .Navbar-Box{
+        display: flex;
+    }
+}
+
+
