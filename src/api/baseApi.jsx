@@ -1,4 +1,4 @@
-export const apiServer = "http://188.166.203.164";
+export const apiServer = '';
 
 const baseFetch = async (url, config = {}, params) => {
     try {

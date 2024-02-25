@@ -1,8 +1,19 @@
-# React + Vite
+## Image gallery on React
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+An application used to viewing and downloading images, built with React, Redux, JavaScript, and CSS.
 
-Currently, two official plugins are available:
+## Installation and Setup Instructions
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react/README.md) uses [Babel](https://babeljs.io/) for Fast Refresh
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react-swc) uses [SWC](https://swc.rs/) for Fast Refresh
+Clone down this repository. You will need `node` and `npm` installed globally on your machine.  In the file [baseAPI.jsx](https://github.com/PiterPoker/ImageGalleryReact/blob/develops/src/api/baseApi.jsx) (in line 1) and [galleryAPISlice.jsx](https://github.com/PiterPoker/ImageGalleryReact/blob/develops/src/slices/galleryAPISlice.jsx) (in line 5) set the url address 
+
+Installation:
+
+`npm install`   
+
+To Start Client:
+
+`npm run dev`  
+
+To Visit App:
+
+`localhost:3000`  
