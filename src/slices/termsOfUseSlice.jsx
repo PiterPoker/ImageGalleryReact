@@ -8,24 +8,22 @@ export const termsOfUseSlice = createSlice({
         paragraphs: [],
       },
     reducers: {
-      isAccept: (state, value) => {
+      accept: (state, value) => {
         state.isAccept = value.payload
       },
       pathRedirect: (state, path) => {
-        state.path = path
+        state.path = path.payload
       },
       paragraphs: (state, data) => {
-        console.log(data)
         const dataSort = [...data.payload]
-        console.log(dataSort)
         dataSort.sort((a, b) => a.index - b.index)
-        state.paragraphs = [...dataSort]
+        state.paragraphs = dataSort
       },
     },
   })
   
-  // Action creators are generated for each case reducer function
-  export const { isAccept, pathRedirect, paragraphs } = termsOfUseSlice.actions
+  
+  export const { accept, pathRedirect, paragraphs } = termsOfUseSlice.actions
 
   export const getParagraphs = (state) => state.termsOfUse.paragraphs;
   export const getPath = (state) => state.termsOfUse.path;
