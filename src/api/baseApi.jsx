@@ -1,22 +1,19 @@
 export const apiServer = "http://188.166.203.164";
 
-const baseFetch = (url, config = {}, params) => {
-    return new Promise((resolve, reject) => {
-        try {
-            const _config = {
-                ...config
-            }
-            if (params) {
-                _config['body'] = JSON.stringify(params)
-            }
-            window.fetch(`${apiServer}${url}`, {
-                ..._config
-            }).then(response => response)
-                .then(resolve, reject)
-        } catch (error) {
-            reject(error)
+const baseFetch = async (url, config = {}, params) => {
+    try {
+        const _config = {
+            ...config
         }
-    })
+        if (params) {
+            _config['body'] = JSON.stringify(params)
+        }
+        return await fetch(`${apiServer}${url}`, {
+            ..._config
+        })
+    } catch (error) {
+        console.log(error)
+    }
 }
 
 const fetchGet = async (url, config) => {
@@ -26,35 +23,35 @@ const fetchGet = async (url, config) => {
     })
 }
 
-const fetchOptions = (url, config) => {
+const fetchOptions = async (url, config) => {
     return baseFetch(url, {
         ...config,
         method: 'OPTIONS'
     })
 }
 
-const fetchPost = (url, params = {}, config = {}) => {
+const fetchPost = async (url, params = {}, config = {}) => {
     return baseFetch(url, {
         ...config,
         method: 'POST'
     }, params)
 }
 
-const fetchPut = (url, params = {}, config = {}) => {
-    return baseFetch(url, {
+const fetchPut = async (url, params = {}, config = {}) => {
+    return await baseFetch(url, {
         ...config,
         method: 'PUT'
     }, params)
 }
-const fetchPatch = (url, params = {}, config = {}) => {
-    return baseFetch(url, {
+const fetchPatch = async (url, params = {}, config = {}) => {
+    return await baseFetch(url, {
         ...config,
         method: 'PATCH'
     }, params)
 }
 
-const fetchDelete = (url, params = {}, config = {}) => {
-    return baseFetch(url, {
+const fetchDelete = async (url, params = {}, config = {}) => {
+    return await baseFetch(url, {
         ...config,
         method: 'DELETE'
     }, params)

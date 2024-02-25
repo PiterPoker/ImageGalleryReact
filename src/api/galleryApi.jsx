@@ -1,14 +1,9 @@
 import baseAPI from './baseApi'
 
-export const getGalleries = async () =>  {
-    return await baseAPI.get('/static/test.json')
-        .then(response => response.json())
-}
-
 export const getImageByUrl = async (urlPath) => {
 
-    return await baseAPI.get(urlPath)
-        .then(async (response) => await response.blob())
+    const response = await baseAPI.get(urlPath)
+    return await response.blob()
 }
 
 export const getHost = () => {
@@ -17,6 +12,5 @@ export const getHost = () => {
 
 export default {
     getHost,
-    getGalleries,
     getImageByUrl,
 }
