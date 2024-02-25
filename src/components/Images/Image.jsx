@@ -8,18 +8,11 @@ import './Image.css'
 
 
 function Image(props) {
-    const [imageUrlFull, setImageUrlFull] = React.useState('')
-    const [imageUrl, setImageUrl] = React.useState('')
+    const url = props.imageUrl
     const host = galleryApi.getHost()
+    let imageUrlFull = `${host}${url}`
+    let imageUrl = url
 
-    React.useEffect(() => {
-        const url = props.imageUrl
-        setImageUrlFull(`${host}${url}`)
-        setImageUrl(url)
-
-    }, []);
-
-    
     const downloadHandle = async (urlImage) => {
 
         const blob = await galleryApi.getImageByUrl(urlImage);
@@ -27,8 +20,7 @@ function Image(props) {
         const url = window.URL.createObjectURL(new Blob([blob]))
         const link = document.createElement("a")
         link.href = url
-        const filename = `image.${blob.type.split('/').at(1)}`
-        link.download = filename
+        link.download = `image.${blob.type.split('/').at(1)}`
         document.body.appendChild(link)
 
         link.click()
@@ -45,7 +37,7 @@ function Image(props) {
                 component='img'
             />
             <CardActions>
-                <Button onClick={() => { downloadHandle(imageUrl) }} >Download</Button>
+                <Button onClick={async() => { await downloadHandle(imageUrl) }} >Download</Button>
             </CardActions>
         </Card>
     )

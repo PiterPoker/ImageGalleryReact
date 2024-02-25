@@ -4,7 +4,7 @@ import App from './App.jsx'
 import './index.css'
 
 import { Provider } from 'react-redux'
-import {store} from './store.jsx'
+import {store} from './sotre/store.jsx'
 
 import { ThemeProvider, createTheme } from '@mui/material/styles';
 import CssBaseline from '@mui/material/CssBaseline';

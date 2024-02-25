@@ -13,7 +13,7 @@ const appConstants = {
         Home: '/',
         Images: 'images',
         Gallery: '/gallery',
-        TremsOfUse: 'tremsOfUse',
+        TremsOfUse: 'termsOfUse',
         NotFound: '*'
     }
 

@@ -4,15 +4,17 @@ import Typography from '@mui/material/Typography';
 
 function Paragraph(props) {
     const paragraph = props.value
+    const title = `${paragraph.index}. ${paragraph.title}`
+    const content = paragraph.content
 
     
     return (
         <CardContent>
           <Typography gutterBottom variant="h5" component="div">
-           {`${paragraph.index}. ${paragraph.title}`}
+           {title}
           </Typography>
           <Typography variant="body2" color="text.secondary">
-            {paragraph.content}
+            {content}
           </Typography>
         </CardContent>
     )

@@ -1,20 +1,17 @@
-import React, { Suspense, lazy } from 'react';
+import React from 'react';
 import { Navigate, Outlet } from "react-router-dom";
 import { useSelector, useDispatch } from 'react-redux'
 import { pathRedirect, paragraphs, getIsAccept } from '../slices/termsOfUseSlice'
 import { setImagesUrl } from '../slices/gallerySlice'
-import { useGetImagesQuery, ImagesAPIData, ImagesAPIStatus, ImagesAPIError } from '../slices/galleryAPISlice'
+import { useGetImagesQuery } from '../slices/galleryAPISlice'
 
-import constants from './constatnts';
-
-import Loading from './Loading'
+import constants from '../Route/constatnts';
 
 
 const PrivateGalleryWrapper = () => {
-  const { currentData, isLoading, isFetching, isSuccess, isError, error } = useGetImagesQuery();
+  const { currentData, isSuccess, isError, error } = useGetImagesQuery();
   const dispatch = useDispatch()
   const isAccept = useSelector(getIsAccept)
-  console.log(isAccept)
 
   React.useEffect(() => {
 

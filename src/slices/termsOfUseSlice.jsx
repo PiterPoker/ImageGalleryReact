@@ -15,9 +15,9 @@ export const termsOfUseSlice = createSlice({
         state.path = path.payload
       },
       paragraphs: (state, data) => {
-        const dataSort = [...data.payload]
-        dataSort.sort((a, b) => a.index - b.index)
-        state.paragraphs = dataSort
+        const sortedData = [...data.payload]
+        sortedData.sort((a, b) => a.index - b.index)
+        state.paragraphs = sortedData
       },
     },
   })

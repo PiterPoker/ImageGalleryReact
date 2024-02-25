@@ -1,8 +1,8 @@
 import { configureStore } from '@reduxjs/toolkit'
 import { setupListeners } from '@reduxjs/toolkit/query'
-import galleryReducer from './slices/gallerySlice'
-import termsOfUseReducer from './slices/termsOfUseSlice'
-import imagesAPI from './slices/galleryAPISlice' 
+import galleryReducer from '../slices/gallerySlice'
+import termsOfUseReducer from '../slices/termsOfUseSlice'
+import imagesAPI from '../slices/galleryAPISlice' 
 
 export const store = configureStore({
     reducer: {

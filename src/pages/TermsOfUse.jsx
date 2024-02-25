@@ -14,11 +14,8 @@ function TermsOfUse() {
     const navigate = useNavigate();
     const dispatch = useDispatch()
     const paragraphs = useSelector(getParagraphs)
-    console.log(paragraphs)
     const pathRedirect = useSelector(getPath)
-    console.log(pathRedirect)
     const isAccept = useSelector(getIsAccept)
-    console.log(isAccept)
 
 
 
