@@ -1,13 +1,19 @@
 import Button from '@mui/material/Button';
-import appConstants from '../common/constatnts';
+import { useNavigate } from "react-router-dom";
 
-function Home(props) {
-    const isAccept = props.isAccept
-    console.log(isAccept)
-    
+import constants from '../Route/constatnts';
+
+function Home() {
+    const navigate = useNavigate();
+
+    const goGalleryHandle = () => {
+        navigate(`${constants.routes.Gallery}`)
+    }
 
     return (
-        <Button href={appConstants.routes.Gallery}>{`GO TO IMAGE Gallery ->`}</Button>
+        <Button variant="contained" onClick={() => goGalleryHandle()}>
+            {`GO TO IMAGE Gallery ->`}
+        </Button>
     )
 }
 

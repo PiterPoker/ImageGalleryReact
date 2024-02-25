@@ -11,8 +11,9 @@ const appConstants = {
     ],
     routes:{
         Home: '/',
+        Images: 'images',
         Gallery: '/gallery',
-        TremsOfUse: '/tremsOfUse',
+        TremsOfUse: 'tremsOfUse',
         NotFound: '*'
     }
 

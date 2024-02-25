@@ -16,10 +16,10 @@
     div.ToolBar-Box{
         display: block;
     } 
-    a.ToolBar-Button{
+    button.ToolBar-Button{
         color: #fff
     }
-    a.ToolBar-Button:hover{
+    button.ToolBar-Button:hover{
         color: #93a8d3
     }
     div.ToolBar-Typography{

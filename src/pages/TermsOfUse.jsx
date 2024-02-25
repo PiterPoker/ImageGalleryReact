@@ -1,11 +1,14 @@
 import React from "react"
+import { Navigate, useNavigate } from "react-router-dom";
 import Button from '@mui/material/Button';
-import { useNavigate } from "react-router-dom";
+import {  } from "react-router-dom";
 
 import Paragraphs from '../components/TermsOfUse/Paragraphs'
 
 import { useSelector, useDispatch } from 'react-redux'
-import { isAccept, getParagraphs, getPath } from '../slices/termsOfUseSlice'
+import { accept, getParagraphs, getPath, getIsAccept } from '../slices/termsOfUseSlice'
+
+import constants from '../Route/constatnts';
 
 function TermsOfUse() {
     const navigate = useNavigate();
@@ -14,25 +17,27 @@ function TermsOfUse() {
     console.log(paragraphs)
     const pathRedirect = useSelector(getPath)
     console.log(pathRedirect)
-    console.log(pathRedirect.payload)
-    
-    
+    const isAccept = useSelector(getIsAccept)
+    console.log(isAccept)
+
+
+
     React.useEffect(() => {
-        if (!paragraphs){
-            paragraphs = useSelector(getParagraphs)
-        }
-    }, [dispatch]);
-    
+    }, [isAccept, dispatch]);
+
     const acceptHandle = (path) => {
-        dispatch(isAccept(true))
+        dispatch(accept(true))
+        console.log(path)
         navigate(path)
     };
 
     return (
-        <div>
-        <Paragraphs value={paragraphs}/>
-        <Button onClick={() => acceptHandle(pathRedirect.payload)}>{`Accept`}</Button>
-        </div>
+        !isAccept ?
+            <div>
+                <Paragraphs value={paragraphs} />
+                <Button onClick={() => acceptHandle(pathRedirect)}>{`Accept`}</Button>
+            </div>
+            : <Navigate to={constants.routes.Gallery} />
     )
 }
 

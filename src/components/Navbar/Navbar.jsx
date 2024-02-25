@@ -9,18 +9,24 @@ import IconButton from '@mui/material/IconButton';
 import List from '@mui/material/List';
 import ListItem from '@mui/material/ListItem';
 import ListItemButton from '@mui/material/ListItemButton';
-import ListItemText from '@mui/material/ListItemText';
 import MenuIcon from '@mui/icons-material/Menu';
 import Toolbar from '@mui/material/Toolbar';
 import Typography from '@mui/material/Typography';
 import Button from '@mui/material/Button';
-import { BrowserRouter, HashRouter, Routes, Route } from "react-router-dom";
+import ListItemText from '@mui/material/ListItemText';
 import './Navbar.css'
+import { Link } from "react-router-dom";
+import { useNavigate } from "react-router-dom";
 
 
 function Navbar(props) {
     const { window } = props;
+    const navigate = useNavigate();
     const [mobileOpen, setMobileOpen] = React.useState(false);
+
+    const goToHandle = (path) => {
+        navigate(path)
+    }
 
     const drawerWidth = 240;
     const navItems = props.routes;
@@ -38,8 +44,8 @@ function Navbar(props) {
             <List>
                 {navItems.map((item) => (
                     <ListItem key={item.name} disablePadding>
-                        <ListItemButton  href={item.path}>
-                            <ListItemText primary={item.name} />
+                        <ListItemButton  onClick={()=>{goToHandle(item.path)}}>
+                        <ListItemText primary={item.name} />                        
                         </ListItemButton>
                     </ListItem>
                 ))}
@@ -70,8 +76,8 @@ function Navbar(props) {
                     </Typography>
                     <Box className="ToolBar-Box">
                         {navItems.map((item) => (
-                            <Button className="ToolBar-Button" href={item.path} key={item.name}>
-                                {item.name}
+                            <Button className="ToolBar-Button" key={item.name} onClick={()=>{goToHandle(item.path)}}>
+                                {item.name}                                
                             </Button>
                         ))}
                     </Box>
