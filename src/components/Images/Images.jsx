@@ -3,7 +3,7 @@ import Image from './Image'
 import './Images.css'
 
 function Images(props) {
-    const images = props.urlImages
+    const images = props.Images
    
 
     return (
