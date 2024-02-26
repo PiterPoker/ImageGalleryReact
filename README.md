@@ -1,6 +1,6 @@
 ## Image gallery on React
 
-An application used to viewing and downloading images, built with React, Redux, JavaScript, and CSS.
+An application is used to viewing and downloading images, built with React, Redux, JavaScript, and CSS.
 
 ## Installation and Setup Instructions
 
